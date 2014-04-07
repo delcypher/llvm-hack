@@ -7,6 +7,9 @@ find_package(LLVM)
 # Needed to use support library
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
 
+# Hack
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+
 add_definitions(${LLVM_DEFINITIONS})
 
 # hack, from llvm-config excutable

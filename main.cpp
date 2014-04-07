@@ -33,7 +33,12 @@ int main(int argc, char** argv)
     Module* m = 0;
     SMDiagnostic Err; 
     m = llvm::ParseIRFile(InputFilename, Err, llvm::getGlobalContext());
-    errs() << "xxx\n";
+    if (!m)
+    {
+        errs() << "Failed to parsing " << InputFilename << "\n";
+        Err.print(argv[0], errs());
+        return 1;
+    }
 
 
     m->dump();
